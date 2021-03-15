@@ -1,6 +1,7 @@
 import s from './style.module.css';
 
-const Layout = ({ title, urlBg, colorBg, colorTitle, children }) => {
+const Layout = ({ title, descr, urlBg, colorBg }) => {
+    console.log(urlBg)
     const styleRoot = urlBg ? { backgroundImage: `url(${urlBg})` } : { background: colorBg }
 
     return (
@@ -9,11 +10,11 @@ const Layout = ({ title, urlBg, colorBg, colorTitle, children }) => {
             <div className={s.wrapper}>
                 <article>
                     <div className={s.title}>
-                        {<h3 style={{ color: colorTitle }}>{title}</h3>}
+                        {title && <h3>{title}</h3>}
                         <span className={s.separator}></span>
                     </div>
                     <div className={`${s.desc} ${s.full}`}>
-                        {children}
+                        {descr && <p>{descr}</p>}
                     </div>
                 </article>
             </div>
