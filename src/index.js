@@ -11,7 +11,7 @@
 // );
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./App"
+import App from "./App.js"
 //import HeaderBlock from './components/HeaderBlock'
 
 import './index.css';
