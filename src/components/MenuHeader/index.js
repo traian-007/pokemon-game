@@ -1,22 +1,22 @@
+// import { useHistory } from "react-router-dom";
 import Menu from './Menu';
 import NavBar from './NavBar';
 import { useState } from "react";
 
-const MenuHeader = () => {
-    const [isActive, setPage] = useState(false);
-    const handleChangeMenu = (isActive) => {
-        setPage(!isActive)
+const MenuHeader = ({ bgActive }) => {
+    const [isActive, setActive] = useState(false);
+    // const history = useHistory()
+    const handleChangeMenu = () => {
+        setActive(prevState => !prevState)
     };
 
-    switch (isActive) {
-        case true:
-            return (<><Menu onChangeMenu={handleChangeMenu} isActive={isActive} />
-                <NavBar onChangeMenu={handleChangeMenu} isActive={isActive} /></>)
-        case false:
-            return <NavBar onChangeMenu={handleChangeMenu} isActive={isActive} />
-        default:
-            return <NavBar onChangeMenu={handleChangeMenu} isActive={isActive} />
-    }
+    return (
+        <>
+            <Menu isActive={isActive} onChangeMenu={handleChangeMenu} />
+            <NavBar onChangeMenu={handleChangeMenu} isActive={isActive} bgActive={bgActive} />
+        </>
+
+    )
 
 }
 

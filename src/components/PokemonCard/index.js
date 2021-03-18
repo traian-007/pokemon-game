@@ -14,8 +14,7 @@ const PokemonCard = ({ name, img, id, type, values }) => {
     }
 
     return (
-        <div className={s.root} onClick={handleClick}>
-            {/* //           <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}> */}
+        <div className={s.root} onClick={handleClick} >
             <div className={cn(s.pokemonCard, { [s.active]: isActive })}>
                 <div className={s.cardFront}>
                     <div className={cn(s.wrap, s.front)}>
@@ -43,14 +42,6 @@ const PokemonCard = ({ name, img, id, type, values }) => {
                     </div>
                 </div>
             </div>
-            {/* <div>
-                <div>
-                    {count.join('')}
-                </div>
-                <div>
-                    <button onClick={handleClick}>Click</button>
-                </div>
-            </div> */}
         </div>
     )
 }

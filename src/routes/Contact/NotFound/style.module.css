@@ -4,9 +4,9 @@
     align-items: center;
     padding-top: 100px;
 }
-.flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+
+.wrap {
+    font-size: 20px;
+    padding: 20px;
+    color: green;
+}
