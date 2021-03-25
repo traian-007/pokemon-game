@@ -23,6 +23,8 @@ const StartPage = () => {
     const handleChangeSelected = (key) => {
         const pokemon = { ...pokemons[key] }
         pokemonContext.addPokemonContext(key, pokemon)
+        console.log('aaaaaaaaaaaa', key)
+        console.log('bbbbbbbbbbbb', pokemon)
         setPokemons(prevState => ({
             ...prevState,
             [key]: {
