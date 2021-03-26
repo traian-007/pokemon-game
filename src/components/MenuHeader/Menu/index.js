@@ -10,7 +10,7 @@ const MENU = [
     },
     {
         title: 'GAME',
-        to: 'game'
+        to: '/game'
     },
     {
         title: 'ABOUT',
