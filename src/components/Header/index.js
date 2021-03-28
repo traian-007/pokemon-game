@@ -1,11 +1,11 @@
 import s from './style.module.css';
 import { useHistory } from 'react-router-dom'
 
-const Header = ({ title, descr }) => {
+const Header = ({ title, descr, onClickButton }) => {
     const history = useHistory();
-    const handleClick = () => {
-        history.push('/game');
-    }
+    // const handleClick = () => {
+    //     history.push('/game');
+    // }
     return (
         <header className={s.root}>
 
@@ -15,7 +15,7 @@ const Header = ({ title, descr }) => {
             <div className={s.container}>
                 {title && <h1>{title}</h1>}
                 {descr && <p>{descr}</p>}
-                <button onClick={handleClick}>
+                <button onClick={onClickButton}>
                     Start Game
                 </button>
             </div>

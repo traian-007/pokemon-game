@@ -3,16 +3,15 @@ import cn from 'classnames';
 import s from "./style.module.css";
 import { useState } from 'react';
 
-const PlayerBoard = ({ player, cards, onClickCard, ab }) => {
+const PlayerBoard = ({ player, cards, onClickCard, classN }) => {
     const [isSelected, setSelected] = useState(null);
-    console.log('abbbbbbbbbbbbbbaaaaa', ab)
 
     return (
         <>
             {
                 cards.map((item) => (
                     <div className={cn(s.cardBoard, {
-                        [s.selected]: isSelected === item.id
+                        [classN]: isSelected === item.id
                     })}
                         onClick={() => {
                             setSelected(item.id);
@@ -32,7 +31,6 @@ const PlayerBoard = ({ player, cards, onClickCard, ab }) => {
                             minimize
                             isActive
                             cards={cards}
-                            ab={ab}
                         />
                     </div>
                 ))

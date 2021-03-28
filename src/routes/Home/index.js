@@ -7,11 +7,23 @@ import Footer from "../../components/Footer"
 //import "./App.css"
 import bg1 from "../../assets/bg1.jpg"
 import bg2 from "../../assets/bg2.jpg"
+// import { useDispatch, useSelector } from "react-redux"
+// import { plusAction, selectCount } from "../../store/counter"
+import { useHistory } from "react-router"
 
 
-const HomePage = ({ onChangePage }) => {
-    const handleClickButton = (page) => {
-        onChangePage && onChangePage(page);
+
+const HomePage = () => {
+    // const dispatch = useDispatch();
+    // const count = useSelector((state) => state.value);
+    // const count = useSelector(selectCount);
+    // console.log("#### : count", count)
+
+    const history = useHistory()
+    const handleClickButton = () => {
+        history.push('/game')
+        // dispatch(plusAction(1))
+
     }
     return (
         <>

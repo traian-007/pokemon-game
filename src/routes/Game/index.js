@@ -28,9 +28,18 @@ const GamePage = () => {
         setPokemon2(arr)
         console.log('arrrrr', acc2)
     }
+    const handleDeletePokemons = () => {
+        setPokemon({})
+        setPokemon2({})
+    }
 
     return (
-        <PokemonContext.Provider value={{ pokemons: acc, pokemons2: acc2, addPokemonContext: handlerAddPokemon, addPokemonPlayer2: handlerAddPokemon2 }}>
+        <PokemonContext.Provider value={{
+            pokemons: acc, pokemons2: acc2,
+            addPokemonContext: handlerAddPokemon,
+            addPokemonPlayer2: handlerAddPokemon2,
+            deletePokemons: handleDeletePokemons
+        }}>
             <Switch>
                 <Route path={`${match.path}`} exact component={StartPage} />
                 <Route path={`${match.path}/board`} component={BoardPage} />
