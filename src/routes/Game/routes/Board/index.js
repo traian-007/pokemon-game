@@ -26,14 +26,15 @@ const BoardPage = () => {
     const [board, setBoard] = useState([]);
     const [player1, setPlayer1] = useState(() => {
         return Object.values(pokemons).map(item => ({
-            ...item
+            ...item,
+            possession: 'blue'
         }))
     });
     const [player2, setPlayer2] = useState([]);
     const [player3, setPlayer3] = useState(() => {
         return Object.values(pokemons).map(item => ({
             ...item,
-            possession: 'blue'
+            possession: 'red'
         }))
     });
     const [choiceCard, setChoiceCard] = useState(null)
@@ -95,8 +96,6 @@ const BoardPage = () => {
 
             const request = await res.json();
 
-            console.log('###: request', request);
-
             if (choiceCard.player === 1) {
                 setPlayer1(prevState => prevState.filter(item => item.id !== choiceCard.id))
             }
@@ -135,8 +134,8 @@ const BoardPage = () => {
         <div className={s.root}>
             <div className={s.playerOne}>
                 <PlayerBoard cards={player1}
-                    ab={player3}
                     player={1}
+                    classN={s.selected}
                     onClickCard={(card) => setChoiceCard(card)} />
             </div>
             <div className={s.board}>
@@ -145,6 +144,7 @@ const BoardPage = () => {
                         <div
                             key={item.position}
                             className={s.boardPlate}
+                            classN={s.selected}
                             onClick={() => !item.card && handleClickBoardPlate(item.position)}
                         >
                             {
@@ -156,7 +156,7 @@ const BoardPage = () => {
             </div>
             <div className={s.playerTwo}>
                 <PlayerBoard
-                    ab={player3}
+                    classN={s.selected}
                     player={2}
                     cards={player2}
                     onClickCard={(card) => setChoiceCard(card)}

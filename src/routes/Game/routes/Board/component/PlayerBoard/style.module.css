@@ -11,3 +11,9 @@
 .cardBoard.selected {
     margin-left: -20px;
 }
+.cardBoard.selectedTop {
+    margin-top: 20px;
+}
+.cardBoard.selectedBottom {
+    margin-top: -20px;
+}

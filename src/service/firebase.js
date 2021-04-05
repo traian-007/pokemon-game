@@ -41,6 +41,7 @@ class Firebase {
         this.database.ref('pokemons/' + keyId).remove()
     }
 }
+const FirebaseClass = new Firebase();
 
-export default Firebase;
+export default FirebaseClass;
 
