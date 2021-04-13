@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link{
+    color: #252934;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #f300b4;
+}
+.btn{
+    margin-bottom: 0;
+}
