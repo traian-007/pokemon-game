@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react"
+import s from './style.module.css';
 // import FooterForm from "../FooterForm"
 import Input from "../Input"
 
-const LoginForm = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit, isResetField = false }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isLogin, setLogin] = useState(true)
+
+    useEffect(() => {
+        setEmail('')
+        setPassword('')
+    }, [isResetField])
 
     const handleClick = () => {
         setLogin(prevState => !prevState)
@@ -14,9 +20,9 @@ const LoginForm = ({ onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         onSubmit && onSubmit({
+            type: isLogin ? 'login' : 'signup',
             email,
-            password,
-            isLogin
+            password
         })
         setEmail('')
         setPassword('')
@@ -27,29 +33,39 @@ const LoginForm = ({ onSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>
-                <Input
-                    name="email"
-                    label="Email"
-                    onChange={setState}
-                    type="text"
-                    value={email}
-                />
-            </div>
-            <div>
-                <Input
-                    label="Password"
-                    value={password}
-                    type="password"
-                    name="password"
-                    onChange={setState}
-                />
+            <Input
+                name="email"
+                label="Email"
+                onChange={setState}
+                type="text"
+                value={email}
+            />
+            <Input
+                label="Password"
+                value={password}
+                type="password"
+                name="password"
+                onChange={setState}
+            />
+            <div className={s.flex}>
+                <button className={s.btn}>
+                    {isLogin ? "Login " : "Signup"}
+                </button>
+                <div
+                    className={s.link}
+                    onClick={() => setLogin(!isLogin)}
+                >
+                    {isLogin ? "Register" : "Login"}
+                </div>
             </div>
 
-            <div style={{ display: 'flex' }}>
+            {/* <div style={{ display: 'flex' }}>
                 <button>{isLogin ? "SIGNUP" : "SIGNIN"} </button>
-                <p style={{ fontSize: "25px", margin: `20px 0 0 35%`, color: 'blue' }} onClick={handleClick} >{isLogin ? "Login ?" : "Register ?"}</p>
-            </div>
+                <p 
+                style={{ fontSize: "25px", margin: `20px 0 0 35%`, color: 'blue' }} 
+                onClick={handleClick} >{isLogin ? "Login ?" : "Register ?"}
+                </p>
+            </div> */}
         </form>
 
     )
