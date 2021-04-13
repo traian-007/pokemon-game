@@ -10,7 +10,11 @@ import AboutPage from "./routes/About";
 import ContactPage from "./routes/Contact";
 import { FireBaseContext } from "./context/firebaseContext";
 // import Firebase from "./service/firebase";
+import { NotificationContainer, NotificationManager } from 'react-notifications'
+import 'react-notifications/lib/notifications.css'
+
 import FirebaseClass from "./service/firebase";
+import PrivateRoute from "./components/Private.Route";
 
 
 const App = () => {
@@ -28,9 +32,9 @@ const App = () => {
               <Switch>
                 <Route path="/" exact component={HomePage} />
                 <Route path="/home" component={HomePage} />
-                <Route path="/game" component={GamePage} />
-                <Route path="/about" component={AboutPage} />
-                <Route path="/contact" component={ContactPage} />
+                <PrivateRoute path="/game" component={GamePage} />
+                <PrivateRoute path="/about" component={AboutPage} />
+                <PrivateRoute path="/contact" component={ContactPage} />
                 <Route render={() => (
                   <Redirect to="/404" />
                 )} />
@@ -40,6 +44,7 @@ const App = () => {
           </>
         </Route>
       </Switch>
+      <NotificationContainer />
     </FireBaseContext.Provider>
 
   )
