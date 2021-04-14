@@ -9,9 +9,8 @@ const Modal = ({ title, children, onCloseModal, isOpen }) => {
         document.querySelector('body').style.overflow = isOpen ? 'hidden' : true
     }, [isOpen])
 
-    const handleCloseModal = (event) => {
+    const handleCloseModal = () => {
         onCloseModal && onCloseModal(false)
-        console.log()
     }
     const handleClickRoot = (event) => {
         if (!modalEl.current.contains(event.target)) {

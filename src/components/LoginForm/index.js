@@ -13,9 +13,9 @@ const LoginForm = ({ onSubmit, isResetField = false }) => {
         setPassword('')
     }, [isResetField])
 
-    const handleClick = () => {
-        setLogin(prevState => !prevState)
-    }
+    // const handleClick = () => {
+    //     setLogin(prevState => !prevState)
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -58,14 +58,6 @@ const LoginForm = ({ onSubmit, isResetField = false }) => {
                     {isLogin ? "Register" : "Login"}
                 </div>
             </div>
-
-            {/* <div style={{ display: 'flex' }}>
-                <button>{isLogin ? "SIGNUP" : "SIGNIN"} </button>
-                <p 
-                style={{ fontSize: "25px", margin: `20px 0 0 35%`, color: 'blue' }} 
-                onClick={handleClick} >{isLogin ? "Login ?" : "Register ?"}
-                </p>
-            </div> */}
         </form>
 
     )

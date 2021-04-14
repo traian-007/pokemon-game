@@ -10,16 +10,29 @@ import AboutPage from "./routes/About";
 import ContactPage from "./routes/Contact";
 import { FireBaseContext } from "./context/firebaseContext";
 // import Firebase from "./service/firebase";
-import { NotificationContainer, NotificationManager } from 'react-notifications'
+import { NotificationContainer } from 'react-notifications'
 import 'react-notifications/lib/notifications.css'
 
 import FirebaseClass from "./service/firebase";
 import PrivateRoute from "./components/Private.Route";
+import { useEffect } from "react";
+import { getUserAsync, selectUserLoading } from "./store/user";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const App = () => {
+  const isUserLoading = useSelector(selectUserLoading)
   const location = useLocation();
   const isPadding = location.pathname === '/' || location.pathname === '/game/board';
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserAsync());
+  }, []);
+
+  if (isUserLoading) {
+    return 'Loading...';
+  }
 
   return (
     <FireBaseContext.Provider value={FirebaseClass}>
